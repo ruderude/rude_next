@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import Layout from '@/components/layouts/Layout'
-import '@/styles/globals.css'
+import '@/styles/globals.scss'
 import 'prismjs/themes/prism-okaidia.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import SEO from '../../next-seo.config'

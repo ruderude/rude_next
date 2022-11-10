@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --c-primary: #3ea8ff;
+}
+
 :target::before {
   content: '';
   display: block;
@@ -10,7 +14,25 @@
   visibility: hidden;
 }
 
-html,
+/* ブログぺーじ */
+.blog {
+  h1 {
+    color: red;
+  }
+
+  .alert {
+    font-weight: bold;
+    padding: 0.5em;
+    background-color: orange;
+    color: white;
+  }
+  
+  .red {
+    color: red;
+  }
+}
+
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -35,4 +57,4 @@ a {
     color: white;
     background: black;
   }
-}
+} */

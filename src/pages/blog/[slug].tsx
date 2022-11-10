@@ -10,6 +10,7 @@ import remarkPrism from 'remark-prism'
 import rehypeParse from 'rehype-parse'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeReact from 'rehype-react'
+import { CustomCode } from './CustomCode'
 import { unified } from 'unified'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -60,7 +61,6 @@ const toReactNode = (content: string) => {
     .processSync(content).result;
 }
 
-
 export const getStaticProps: ({ params, }: { params: any }) => Promise<{ props: { frontMatter: { [key: string]: any }; content: string; } } | undefined> = async ({
   params,
 }) => {
@@ -77,10 +77,11 @@ export const getStaticProps: ({ params, }: { params: any }) => Promise<{ props: 
       })
       .use(remarkUnwrapImages)
       .use(remarkRehype, { allowDangerousHtml: true })
+      .use(CustomCode)
       .use(rehypeSlug)
       .use(rehypeStringify, { allowDangerousHtml: true })
       .process(content)
-    console.log('result:',result);
+    // console.log('result:',result);
     return { props: { frontMatter: data, content: result.toString(), slug: params.slug } }
   }
   
@@ -121,7 +122,7 @@ const Post: ({ frontMatter, content, slug }: { frontMatter: any; content: any; s
           ],
         }}
       />
-      <div className="prose prose-lg max-w-none mx-3">
+      <div className="blog prose prose-lg max-w-none mx-3">
         <div className="">
           <Image
             src={`/${frontMatter.image}`}
