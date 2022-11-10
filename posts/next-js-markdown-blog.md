@@ -28,9 +28,26 @@ npx create-next-app コマンドを利用して Next.js プロジェクトの作
 
 ### プロジェクトの作成
 
-![猫画像](http://localhost:3000/img/neko3.jpg)
+[id-1]文章中の脚注[^1]
 
-npx create-next-app コマンドを利用して Next.js プロジェクトの作成を行います。
+[^1]: 脚注の補足
+
+[id-2]星[^2]や
+
+[id-3]日本語[^3]など数字以外の文字もいけるが、
+対応する脚注は数字が自動で割り振られている。
+
+[^2]: 星マーク
+[^3]: 日本語も大丈夫です。
+
+
+![猫画像](http://localhost:3000/img/blog/neko6.jpg)
+
+<br>
+
+### npx create-next-app コマンドを利用して Next.js プロジェクトの作成を行います。
+
+テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
 
 ## Next.js の準備4
 
@@ -38,9 +55,23 @@ npx create-next-app コマンドを利用して Next.js プロジェクトの作
 
 npx create-next-app コマンドを利用して Next.js プロジェクトの作成を行います。
 
+#### h4h4h4h4
+
+testetsts
+
+#### h4h4h4h4222
+
+testetsts222222
+
 ## Next.js の準備5
 
 ### プロジェクトの作成
+
+<details><summary>Open tango</summary>
+
+target content
+
+</details>
 
 npx create-next-app コマンドを利用して Next.js プロジェクトの作成を行います。
 

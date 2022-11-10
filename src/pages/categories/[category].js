@@ -1,6 +1,7 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import { PostCard } from '@/components/blog/PostCard'
+import { Categories } from '@/constants/Categories'
 
 export const getStaticProps = ({ params }) => {
   const files = fs.readdirSync('posts')
@@ -32,8 +33,7 @@ export const getStaticProps = ({ params }) => {
 }
 
 export const getStaticPaths = () => {
-  const categories = ['react', 'laravel']
-  const paths = categories.map((category) => ({ params: { category } }))
+  const paths = Categories.map((category) => ({ params: { category } }))
 
   return {
     paths,
@@ -44,7 +44,7 @@ export const getStaticPaths = () => {
 const Category = ({ posts }) => {
   return (
     <div className="my-8">
-      <div className="grid grid-cols-3 gap-4 mx-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4 mx-3">
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}

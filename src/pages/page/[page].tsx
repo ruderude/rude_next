@@ -63,12 +63,15 @@ export async function getStaticPaths() {
 const Page: any = ({ posts, pages, current_page }: { posts: any; pages: number[]; current_page: number}) => {
   return (
     <div className="my-8">
-      <div className="grid grid-cols-3 gap-4 mx-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4 mx-3">
         {posts.map((post: any) => (
           <PostCard key={post.slug} post={post} />
         ))}
       </div>
-      <Pagination pages={pages} current_page={current_page} />
+      <div className='mx-auto'>
+        <Pagination pages={pages} current_page={current_page} />
+      </div>
+      
     </div>
   );
 };

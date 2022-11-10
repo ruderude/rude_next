@@ -2,44 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --c-primary: #3ea8ff;
-}
+@import "variables";
 
 :target::before {
   content: '';
   display: block;
   height: 72px;
+  padding-top: 72px;
   margin-top: -72px;
   visibility: hidden;
 }
 
 // ヘッダー、フッター
 .header {
-  background-color: #5a5d5e;
+  background-color: $header_footer_bg;
 }
 
 .footer {
-  background-color: #5a5d5e;
+  background-color: $header_footer_bg;
 }
 
-/* ブログぺーじ */
-.blog {
-  h1 {
-    color: red;
-  }
-
-  .alert {
-    font-weight: bold;
-    padding: 0.5em;
-    background-color: orange;
-    color: white;
-  }
-  
-  .red {
-    color: red;
-  }
-}
 
 /* html,
 body {

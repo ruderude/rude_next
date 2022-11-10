@@ -8,7 +8,7 @@ const logo = {
 
 const Header = () => {
   return (
-    <header className="sticky top-0 border-b z-10 header">
+    <header className="border-b z-10 header">
       <div className="max-w-4xl mx-auto flex justify-between items-center h-12 mx-auto ">
         <div style={{ position: 'relative', width: '130px', height: '130px' }}>
           <Link href="/" className="ml-3">

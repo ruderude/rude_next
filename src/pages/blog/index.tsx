@@ -52,14 +52,16 @@ const Blog = ({ posts, pages, current_page = 1 }: Props): JSX.Element => {
   return (
     <>
       <div className='my-8'>
-        <div className='grid grid-cols-3 gap-4 mx-3'>
+        <div className='grid grid-cols-1 md:grid-cols-3 md:gap-4 mx-3'>
           {posts.map((post) => (
             <div key={post.slug}>
               <PostCard post={post} key={post.slug} />
             </div>
           ))}
         </div>
-        <Pagination pages={pages} current_page={current_page} />
+        <div className='mx-auto'>
+          <Pagination pages={pages} current_page={current_page} />
+        </div>
       </div>
     </>
   )

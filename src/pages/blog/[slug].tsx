@@ -8,6 +8,7 @@ import remarkToc from 'remark-toc'
 import rehypeSlug from 'rehype-slug'
 import remarkPrism from 'remark-prism'
 import rehypeParse from 'rehype-parse'
+import remarkFootnotes from 'remark-footnotes'
 import remarkUnwrapImages from 'remark-unwrap-images'
 import rehypeReact from 'rehype-react'
 import { CustomCode } from './CustomCode'
@@ -15,6 +16,7 @@ import { unified } from 'unified'
 import Image from 'next/image'
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
+import { UpScrollBtn } from '@/components/common/UpScrollBtn'
 import {
   GetStaticPaths,
   GetStaticPropsResult,
@@ -69,6 +71,7 @@ export const getStaticProps: ({ params, }: { params: any }) => Promise<{ props: 
     const { data, content } = matter(file)
     const result = await unified()
       .use(remarkParse)
+      .use(remarkFootnotes, {inlineNotes: true})
       .use(remarkPrism, {
         plugins: ['line-numbers'],
       })
@@ -132,6 +135,7 @@ const Post: ({ frontMatter, content, slug }: { frontMatter: any; content: any; s
           />
         </div>
         <h1 className="mt-12">{frontMatter.title}</h1>
+        <br />
         <span>{frontMatter.date}</span>
         <div className="space-x-2">
           {frontMatter.categories.map((category: string) => (
@@ -146,6 +150,7 @@ const Post: ({ frontMatter, content, slug }: { frontMatter: any; content: any; s
           {toReactNode(content)}
         </div>
       </div>
+      <UpScrollBtn />
     </>
   )
 }
