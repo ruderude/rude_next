@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Post } from '@/types/blog'
+import { Post } from '@/@types/blog'
 
 interface Props {
   post: Post
@@ -9,7 +9,7 @@ interface Props {
 export const PostCard = ({ post }: Props) => {
   return (
     <Link href={`/blog/${post.slug}`}>
-      <div className="border rounded-lg">
+      <div className='border rounded-lg'>
         <Image
           src={`/${post.frontMatter.image}`}
           width={1200}
@@ -17,8 +17,8 @@ export const PostCard = ({ post }: Props) => {
           alt={post.frontMatter.title}
         />
       </div>
-      <div className="px-2 py-4">
-        <h1 className="font-bold text-lg">{post.frontMatter.title}</h1>
+      <div className='px-2 py-4'>
+        <h1 className='font-bold text-lg'>{post.frontMatter.title}</h1>
         <span>{post.frontMatter.date}</span>
         {/* <span key={category}>
           <Link href={`/categories/${category}`}>
@@ -27,5 +27,5 @@ export const PostCard = ({ post }: Props) => {
         </span> */}
       </div>
     </Link>
-  );
-};
+  )
+}

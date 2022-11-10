@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 import type { NextPage } from 'next'
 import Link from 'next/link'
 import { PostCard } from '@/components/blog/PostCard'
-import { Post } from '@/types/blog'
+import { Post } from '@/@types/blog'
 import { Pagination } from '@/components/blog/Pagination'
 
 interface Props {
@@ -12,12 +12,15 @@ interface Props {
   current_page: number
 }
 
-const PAGE_SIZE = 2;
+const PAGE_SIZE = 2
 
-const range: (start: any, end: any, length?: number) => any[] = (start, end, length = end - start + 1) => {
+const range: (start: any, end: any, length?: number) => any[] = (
+  start,
+  end,
+  length = end - start + 1,
+) => {
   return Array.from({ length }, (_, i) => start + i)
 }
-
 
 export const getStaticProps = () => {
   const files = fs.readdirSync('posts')
@@ -32,10 +35,10 @@ export const getStaticProps = () => {
   })
 
   const sortedPosts = posts.sort((postA, postB) =>
-    new Date(postA.frontMatter.date) > new Date(postB.frontMatter.date) ? -1 : 1
+    new Date(postA.frontMatter.date) > new Date(postB.frontMatter.date) ? -1 : 1,
   )
 
-  const pages = range(1, Math.ceil(posts.length / PAGE_SIZE));
+  const pages = range(1, Math.ceil(posts.length / PAGE_SIZE))
 
   return {
     props: {
@@ -46,11 +49,10 @@ export const getStaticProps = () => {
 }
 
 const Blog = ({ posts, pages, current_page = 1 }: Props): JSX.Element => {
-
   return (
     <>
-      <div className="my-8">
-        <div className="grid grid-cols-3 gap-4 mx-3">
+      <div className='my-8'>
+        <div className='grid grid-cols-3 gap-4 mx-3'>
           {posts.map((post) => (
             <div key={post.slug}>
               <PostCard post={post} key={post.slug} />
